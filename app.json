@@ -1,7 +1,7 @@
 {
-  "name": "Node.js Getting Started",
-  "description": "A barebones Node.js app using Express 4",
-  "repository": "https://github.com/heroku/node-js-getting-started",
+  "name": "RIA_KX",
+  "description": "RIA KX Session on Virtual Reality",
+  "repository": "https://github.com/manasmehrotra3/RIA_KX",
   "logo": "http://node-js-sample.herokuapp.com/node.svg",
   "keywords": ["node", "express", "static"]
 }

@@ -1,2 +1,2 @@
-# industrialPlant
-Industrial Plant Demo for Capital Group
+# RIA_KX
+RIA KX Session on Virtual Reality &amp; ThreeJS

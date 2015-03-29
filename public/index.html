@@ -1,52 +1,386 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Capital Group VR</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <link href='https://fonts.googleapis.com/css?family=Strait' rel='stylesheet' type='text/css'>
-    <link href='css/style.css' rel='stylesheet' type='text/css'>
-    <style>
-      #info{
-        padding:10px;
-        color:#fff;
-        position:absolute;
-        background-color:rgba(0,0,0,0.4);
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=1024, user-scalable=no">
+
+  <title>Virtual Reality</title>
+
+  <!-- Required stylesheet -->
+  <link rel="stylesheet" media="screen" href="core/deck.core.css">
+
+  <!-- Extension CSS files go here. Remove or add as needed. -->
+  <link rel="stylesheet" media="screen" href="extensions/goto/deck.goto.css">
+  <link rel="stylesheet" media="screen" href="extensions/menu/deck.menu.css">
+  <link rel="stylesheet" media="screen" href="extensions/navigation/deck.navigation.css">
+  <link rel="stylesheet" media="screen" href="extensions/status/deck.status.css">
+  <link rel="stylesheet" media="screen" href="extensions/scale/deck.scale.css">
+
+  <!-- Style theme. More available in /themes/style/ or create your own. -->
+  <link rel="stylesheet" media="screen" href="themes/style/web-2.0.css">
+
+  <!-- Transition theme. More available in /themes/transition/ or create your own. -->
+  <link rel="stylesheet" media="screen" href="themes/transition/horizontal-slide.css">
+
+  <!-- Basic black and white print styles -->
+  <link rel="stylesheet" media="print" href="core/print.css">
+
+  <!-- Required Modernizr file -->
+  <script src="modernizr.custom.js"></script>
+  
+  <style>
+     input[type=range].custom {
+    -webkit-appearance: none;
+    background-color: Red;
+    width: 200px;
+}
+
+input[type=range].custom::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-color: Green;
+    opacity: 0.5;
+    width: 10px;
+    height: 40px;
+}
+  </style>
+  
+</head>
+<body>
+  <div class="deck-container">
+
+    <!-- Begin slides. Just make elements with a class of slide. -->
+
+    <section class="slide">
+      <li id="canvas" style="position: absolute; top: -50px; left: 0px;"></li>
+      <h1 style="font-size: 72px; color: #FFFFFF; opacity: 0.5;">Introduction to Virtual Reality</h1>
+      <p class="vcenter" style="margin-top: 55px; margin-left: 750px; color: #FFFFFF;">- Seeing is believing</p>
+    </section>
+
+    <section class="slide">
+      <h2>What we are going to talk about?</h2>
+      <ul style="font-size: 36px;">
+      	<li class="slide">Iron Man</li>
+      	<li class="slide">Virtual Reality</li>
+      	<li class="slide">The Matrix</li>
+      	<li class="slide">Concepts</li>
+        <li class="slide">WebGL</li>
+      	<li class="slide">Implementation using ThreeJS</li>
+      	<li class="slide">Concern and Challenges</li>
+      	<li class="slide">Industry Use Cases</li>
+      	<li class="slide">Conclusion</li>
+      </ul>
+    </section>
+    
+    <section class="slide">
+    	<img src="img/iron-man.jpg" alt="" class="vcenter" style="margin-left: -30px;" />
+    </section>
+
+    <section class="slide">
+      <h2>Virtual Reality</h2>
+      <ul>
+      	<li>The definition of ‘virtual’ is near and reality is what we experience as human beings. So the term ‘virtual reality’ basically means ‘near-reality’.</li>
+      	<li> Virtual reality is the term used to describe a three-dimensional, computer generated environment which can be explored and interacted with by a person.</li>
+        <li>Sometimes referred to as 'immersive multimedia' because of being a computer-simulated environment that can simulate physical presence in places in the real world or imagined worlds</li>
+        <li>Virtual reality can recreate sensory experiences, which include virtual taste, sight, smell, sound, and touch.</li>
+      </ul>	
+      <img src="img/museum.gif" alt="" />
+    </section>
+    
+    <section class="slide">
+    	<img src="img/morpheus-glasses-meme.jpg" alt="" class="vcenter" />
+    </section>
+
+    <section class="slide">
+      <img src="img/what-is-real.jpg" alt="" class="vcenter" />
+    </section>
+
+    <section class="slide">
+      <h2>Concepts</h2>
+      <ul>
+        <li>The concepts behind virtual reality are based upon theories about a long held human desire to escape the boundaries of the ‘real world’ by embracing cyberspace.</li>
+        <li>Once there we can interact with this virtual environment in a more naturalistic manner which will generate new forms of human-machine interaction (HMI).</li>
+        <li>Beyond the keyboard and mouse.</li>
+        <li>Freedom within the 3D virtual environment.</li>
+        <li>Problem solving with virtual reality.</li>
+        <li>Opinions differ on what exactly constitutes a true VR experience, but in general it should include: <br />
+          - Three-dimensional images that appear to be life-sized from the perspective of the user <br />
+          - The ability to track a user's motions, particula­rly his head and eye movements, and correspondingly adjust the images on the user's display to reflect the change in perspective </li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>WebGL</h2>
+      <ul>
+        <li>WebGL (Web Graphics Library) is a JavaScript API for rendering interactive 3D computer graphics and 2D graphics within any compatible web browser without the use of plug-ins.</li>
+        <li>WebGL is integrated completely into all the web standards of the browser allowing GPU accelerated usage of physics and image processing and effects as part of the web page canvas.</li>
+        <li>WebGL elements can be mixed with other HTML elements and composited with other parts of the page or page background.</li>
+        <li>WebGL is based on OpenGL ES 2.0 and provides an API for 3D graphics.</li>
+        <li>It uses the HTML5 canvas element and is accessed using DOM interfaces.</li>
+        <li>Automatic memory management is provided as part of the JavaScript language.</li>
+        <li>A non-exhaustive list of libraries that provide many high-level features includes three.js, babylon.js, O3D, OSG.JS, CopperLicht and GLGE.</li>
+        <li>There also has been a rapid emergence of game engines for WebGL, including Unreal Engine 4 and Unity 5.</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>WebGL Example - Google Books</h2>
+      <iframe src="http://bookcase.chromeexperiments.com/" style="height: 700px; width: 100%;"></iframe>
+    </section>
+
+    <section class="slide">
+      <h2>Implementation using ThreeJS</h2>
+      <ul>
+        <li>Include three.js library</li>
+        <li>Create WebGL Renderer</li>
+        <li>Define camera</li>
+        <li>Add light</li>
+        <li>Create a scene</li>
+        <li>Make a mesh(object)</li>
+        <li>Render the scene</li>
+      </ul>
+      <img src="img/threejs.gif" alt="" />
+    </section>
+
+    <section class="slide">
+      <h2>Concern and Challenges</h2>
+      <ul>
+        <li>Motion sickness.</li>
+        <li>Addiction.</li>
+        <li>Disengagement with real world.</li>
+        <li>Psychological damage: identity problems.</li>
+        <li>Lack of Privacy.</li>
+        <li>Behavioural changes, specially rise in aggression.</li>
+        <li>Possible impacts on real body: mainly eyesight & headache due to eye strain.</li>
+        <li>VR has been heavily crticized for being an inefficient method for navigation and non-geographical information.</li>
+        <li>Repetitive Strain Injury(RSI) can also result from prolonged use of VR headsets and gloves.</li>
+        <li>Generally the cost involved in creation of a VR system is too high.</li>
+        <li>Programmers are still grappling with how to interact with virtual environment.</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Industry Use Cases</h2>
+      <ul>
+        <li><a href="http://chrome.angrybirds.com/" target="_blank">Angry Birds</a></li>
+        <li><a href="http://www.playmapscube.com/" target="_blank">Google Maps Cube Game</a></li>
+        <li><a href="http://www.webglearth.com/#ll=21.11458,82.75347;alt=2473508" target="_blank">WebGL Earth</a></li>
+        <li><a href="https://www.chromeexperiments.com/webgl" target="_blank">Chrome Experiments</a></li>
+        <li><a href="http://www.commonfloor.com/retina" target="_blank">CommonFloor Retina</a></li>
+        <li><a href="http://race.assassinscreedpirates.com/" target="_blank">Assassin's Creed Pirates</a></li>
+        <li><a href="http://www.sokrate.fr/expovirtuelle/index.htm" target="_blank">Virtual Expo</a></li>
+        <li><a href="http://www.babylonjs.com/" target="_blank">BabylonJS</a></li>
+        <li><a href="http://www.mr-drones.com/" target="_blank">Mr. Drones</a></li>
+        <li><a href="http://www.spacegoo.com/lignum/index.php?constructor=Demo1" target="_blank">LIGNUM</a></li>
+        <li><a href="https://www.buildwithchrome.com/" target="_blank">Lego - build with Chrome</a></li>
+        <li><a href="http://gallantlab.org/semanticmovies/" target="_blank">Semantic Space</a></li>
+        <li><a href="http://www.tweetopia.net/#WebGL" target="_blank">Tweetopia</a></li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Conclusion</h2>
+      <ul>
+        <li>Though the disadvantages of Virtual reality can disturb the human's perception ability, it's advantages in different fields makes it user friendly.</li>
+        <li>The sole objective of virtual reality is to give the user an environment as realistic as possible and a trilling sensory experience.</li>
+        <li>The technology of virtual reality is advancing rapidly and it won't be long before it becomes a most exciting source of entertainment of our homes.</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h1 style="font-size: 72px;">Questions?</h1>
+      <img src="img/Golum Ask Us.gif" alt="" class="vcenter" style="margin-top: -200px;" />
+    </section>
+    
+    <section class="slide">
+      <h1 style="font-style: italic;">That's all, folks!</h1>
+      <h2 class="vcenter" style="margin-top: 100px;">Thank You</h2>
+      <img src="img/joker-clap.gif" alt="" class="vcenter" style="margin-top: -200px;" />
+    </section>
+    
+    <!-- End slides. -->
+
+    <!-- Begin extension snippets. Add or remove as needed. -->
+
+    <!-- deck.navigation snippet -->
+    <div aria-role="navigation">
+      <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+      <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+    </div>
+
+    <!-- deck.status snippet -->
+    <p class="deck-status" aria-role="status">
+      <span class="deck-status-current"></span>
+      /
+      <span class="deck-status-total"></span>
+    </p>
+
+    <!-- deck.goto snippet -->
+    <form action="." method="get" class="goto-form">
+      <label for="goto-slide">Go to slide:</label>
+      <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+      <datalist id="goto-datalist"></datalist>
+      <input type="submit" value="Go">
+    </form>
+
+    <!-- End extension snippets. -->
+  </div>
+
+<!-- Required JS files. -->
+<script src="jquery.min.js"></script>
+<script src="core/deck.core.js"></script>
+
+<!-- Extension JS files. Add or remove as needed. -->
+<script src="extensions/menu/deck.menu.js"></script>
+<script src="extensions/goto/deck.goto.js"></script>
+<script src="extensions/status/deck.status.js"></script>
+<script src="extensions/navigation/deck.navigation.js"></script>
+<script src="extensions/scale/deck.scale.js"></script>
+
+<script src="three/three.min.js"></script>
+<script src="three/Projector.js"></script>
+<script src="three/CanvasRenderer.js"></script>
+
+<!-- Initialize the deck. You can put this in an external file if desired. -->
+<script>
+
+      var container, stats;
+      var camera, scene, renderer, group, particle;
+      var mouseX = 0, mouseY = 0;
+
+      var windowHalfX = window.innerWidth / 2;
+      var windowHalfY = window.innerHeight / 2;
+
+      init();
+      animate();
+
+      function init() {
+
+        container = document.getElementById( 'canvas' );
+
+        camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 3000 );
+        camera.position.z = 1000;
+
+        scene = new THREE.Scene();
+
+        var PI2 = Math.PI * 2;
+        var program = function ( context ) {
+
+          context.beginPath();
+          context.arc( 0, 0, 0.5, 0, PI2, true );
+          context.fill();
+
+        }
+
+        group = new THREE.Group();
+        scene.add( group );
+
+        for ( var i = 0; i < 1000; i++ ) {
+
+          var material = new THREE.SpriteCanvasMaterial( {
+            color: Math.random() * 0x808008 + 0x808080,
+            program: program
+          } );
+
+          particle = new THREE.Sprite( material );
+          particle.position.x = Math.random() * 2000 - 1000;
+          particle.position.y = Math.random() * 2000 - 1000;
+          particle.position.z = Math.random() * 2000 - 1000;
+          particle.scale.x = particle.scale.y = Math.random() * 20 + 10;
+          group.add( particle );
+        }
+
+        renderer = new THREE.CanvasRenderer();
+        renderer.setPixelRatio( window.devicePixelRatio );
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        container.appendChild( renderer.domElement );
+
+        document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+        document.addEventListener( 'touchstart', onDocumentTouchStart, false );
+        document.addEventListener( 'touchmove', onDocumentTouchMove, false );
+
+        //
+
+        window.addEventListener( 'resize', onWindowResize, false );
+
       }
 
-      #generic_error,
-      #security_error{
-        padding-top:200px;
-        width:500px;
-        margin-left:auto;
-        margin-right:auto;
-        display:none;
+      function onWindowResize() {
+
+        windowHalfX = window.innerWidth / 2;
+        windowHalfY = window.innerHeight / 2;
+
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+
+        renderer.setSize( window.innerWidth, window.innerHeight );
+
       }
-    </style>
 
-  </head>
+      //
 
-  <body>
-    <div id="info">
-      <div class="button" id="toggle-render">toggle render mode</div> <div class="button" id="help">help</div>
-    </div>
+      function onDocumentMouseMove( event ) {
 
-    <div id="viewport"></div>
-    <div id="security_error">
-      <p>This file must be served via HTTP to support the use of textures.</p>
-      <p>Please host this content via a web server of some kind and try again.</p>
-    </div>
-    <div id="generic_error">
-      <p>Oh dang, something went wrong while trying to render the scene.</p>
-      <p>Exception: <span id="exception_message"></span></p>
-    </div>
-    
-    <script src="lib/OculusBridge.min.js"></script>
-    
-    <script src="lib/three.js"></script>
-    <script src="lib/OrbitControls.js"></script>
-    <script src="lib/RiftCamera.js"></script>
+        mouseX = event.clientX - windowHalfX;
+        mouseY = event.clientY - windowHalfY;
+      }
 
-    <script src="js/first_person.js"></script>
-  </body>
+      function onDocumentTouchStart( event ) {
+
+        if ( event.touches.length === 1 ) {
+
+          event.preventDefault();
+
+          mouseX = event.touches[ 0 ].pageX - windowHalfX;
+          mouseY = event.touches[ 0 ].pageY - windowHalfY;
+
+        }
+
+      }
+
+      function onDocumentTouchMove( event ) {
+
+        if ( event.touches.length === 1 ) {
+
+          event.preventDefault();
+
+          mouseX = event.touches[ 0 ].pageX - windowHalfX;
+          mouseY = event.touches[ 0 ].pageY - windowHalfY;
+
+        }
+
+      }
+
+      //
+
+      function animate() {
+
+        requestAnimationFrame( animate );
+
+        render();
+        stats.update();
+
+      }
+
+      function render() {
+
+        camera.position.x += ( mouseX - camera.position.x ) * 0.05;
+        camera.position.y += ( - mouseY - camera.position.y ) * 0.05;
+        camera.lookAt( scene.position );
+
+        group.rotation.x += 0.01;
+        group.rotation.y += 0.02;
+
+        renderer.render( scene, camera );
+
+      }
+
+    </script>
+
+    <script>
+  $(function() {
+    $.deck('.slide');
+  });
+</script>
+</body>
 </html>
